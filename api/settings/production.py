@@ -25,7 +25,7 @@ SECRET_KEY = 'jn_p9ed8v4y-1n5_y1n6a*ce06)8yqhh3d$p0h6w5@&@c@tjr6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0:5000', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['www.kirr.co', 'kirr.co', 'https://componyme2u.herokuapp.com/']
 
 
 # Application definition
