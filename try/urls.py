@@ -25,37 +25,33 @@ from .views import (
 
 
 urlpatterns = [
-    url(r'^$', views.home, name='home'),
-    url(r'^create/$', views.create, name='create'),
-    url(r'^list/$', views.list, name='list'),
+    
+    url(r'^user/$', UserListAPIView.as_view(), name='get'),
+    url(r'^client/$', ComponyListAPIView.as_view(), name='get'),
+    
 
-    #testing my urls
-    url(r'^aime/$', views.aime, name='aime'),
-
-
-    url(r'^signup/$', views.signup, name='signup'),
-
-
-    url(r'^api/list/$', ComponyListAPIView.as_view(), name='list'),
-    url(r'^client/list/api$', ClientListAPIView.as_view(), name='list'),
-    url(r'^list/user/api$', UserListAPIView.as_view(), name='list'),
+    url(r'^compony/$', ClientListAPIView.as_view(), name='get'),
+    
     
     
 
 
-    url(r'^create/api/$', ComponyCreateAPIView.as_view(), name='create'),
-    url(r'^create/client/api/$', ClientCreateAPIView.as_view(), name='create'),
-    url(r'^user/create/api/$', UserCreateAPIView.as_view(), name='create'),
+   
+    url(r'^create/client/api/$', ClientCreateAPIView.as_view(), name='post'),
+
+
+    url(r'^signup/$', UserCreateAPIView.as_view(), name='post'),
+    url(r'^client/new/$', ComponyCreateAPIView.as_view(), name='post'),
     
 
     
-    url(r'^(?P<pk>\d+)/$', ComponyADetailAPIView.as_view(), name='detail'),
-    url(r'^user(?P<pk>\d+)/$', UserADetailAPIView.as_view(), name='detail'),
+    url(r'^client/(?P<pk>\d+)/$', ComponyADetailAPIView.as_view(), name='put'),
+    url(r'^user/(?P<pk>\d+)/$', UserADetailAPIView.as_view(), name='put'),
     
 
 
-    url(r'^user/delete/api(?P<pk>\d+)/$', UserDeleteAPIView.as_view(), name='delete'),
-    url(r'^delete/api/(?P<pk>\d+)/$',
+    url(r'^user/(?P<pk>\d+)/$', UserDeleteAPIView.as_view(), name='delete'),
+    url(r'^client/(?P<pk>\d+)/$',
         ComponyDeleteAPIView.as_view(), name='delete'),
 
 ]

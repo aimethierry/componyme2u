@@ -21,7 +21,7 @@ class compony(models.Model):
 
 class users(models.Model):
     user = models.ForeignKey(User, null=True)
-    compony = models.ManyToManyField('compony', null=True)
+    compony = models.ManyToManyField(User, null=True, related_name='compony')
     first_name = models.CharField(max_length=140, null=True)
     last_name = models.CharField(max_length=140, null=True)
     amount = models.IntegerField()   

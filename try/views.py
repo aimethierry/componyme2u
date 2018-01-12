@@ -17,9 +17,6 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
 
-def aime(request):
-    return HttpResponse("hello aime")
-
 
 # for api
 class ComponyCreateAPIView(generics.ListCreateAPIView):
@@ -88,48 +85,6 @@ class ComponyDeleteAPIView(generics.RetrieveUpdateDestroyAPIView):
 
     
 
-
-
-def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = SignUpForm()
-    return render(request, 'signup.html', {'form': form})
-
-def home(request):
-    if request.method == 'POST':
-        form = MyModelForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = MyModelForm()
-    
-        return render(request, 'create.html')
-
-
-def create(request):
-        if request.method == 'POST':
-            name = request.POST['name'],
-            title = request.POST['title'],
-
-            compony.objects.create(
-                name = name,
-                title = title,
-            )
-        return HttpResponse("created")
-
-
-def list(request):
-    name = compony.objects.all()
-    context = {
-    "name":name
-    }
-    return render(request, 'list.html', context)
 
 
 
