@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
@@ -139,10 +140,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_DIRS = (
-    os.path.join(BASE_DIR, 'static-storage'),
-)
+STATICFILES_DIRS = [
+    # will not be served, long term storage
+    os.path.join(BASE_DIR, "static-storage"),
+]
 
-STATIC_ROOT = (
-    os.path.join(BASE_DIR, 'static-server'),
-)
+
+# will be served
+STATIC_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static-server") 

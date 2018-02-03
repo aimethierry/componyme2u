@@ -19,50 +19,47 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 # for api
+def home(request):
+    return render(request, "asco/home.html")
+
+
 class ComponyCreateAPIView(generics.ListCreateAPIView):
     queryset = users.objects.all()
     serializer_class = ComponylistSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
 
 class UserCreateAPIView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserlistSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
-
+   
 class ClientCreateAPIView(generics.ListAPIView):
     queryset = compony.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = [permissions.IsAuthenticated]
+ 
 
 
 #for list api
 class ComponyListAPIView(generics.ListAPIView):
     queryset = users.objects.all()
     serializer_class = ComponylistSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    
+  
 class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserlistSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
+    
 
 class ClientListAPIView(generics.ListAPIView):
     queryset = compony.objects.all()
     serializer_class = ClientSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
+  
     
 
 
-#for details
+#for details and put
 class ComponyADetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = users.objects.all()
     serializer_class = ComponylistSerializer
-    permission_classes = [permissions.IsAuthenticated]
-
+  
 
 class UserADetailAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()

@@ -26,6 +26,8 @@ from .views import (
 
 urlpatterns = [
     
+    url(r'^$', views.home, name='home'),
+
     url(r'^user/$', UserListAPIView.as_view(), name='get'),
     url(r'^client/$', ComponyListAPIView.as_view(), name='get'),
     
